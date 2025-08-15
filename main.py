@@ -1,11 +1,16 @@
 from langchain_openai import OpenAI
 from dotenv import load_dotenv
+import argparse
 
 load_dotenv()
 
-llm = OpenAI()
+# define arguments
+parser = argparse.ArgumentParser()
+parser.add_argument("--task", default="write a very short story!")
 
+llm = OpenAI()
+args = parser.parse_args();
 # Run a prompt
-result = llm.invoke("Write a very short story!")  # correct method in new API
+result = llm.invoke(args.task)  # correct method in new API
 
 print(result)
