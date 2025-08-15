@@ -22,4 +22,4 @@ result = question_chain({
     "word": args.word
 }) # correct method in new API
 
-print(result)
+print(result['text'])
